@@ -39,6 +39,15 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 pub enum Commands {
+    /// Create a new project with optional database, authentication, middleware, and API surface configurations.
+    ///
+    /// # Arguments
+    ///
+    /// * `name` - The name of the project to create
+    /// * `db` - Optional database provider to use
+    /// * `auth` - Optional authentication method to enable
+    /// * `middleware` - Comma-separated list of middleware components to include
+    /// * `surface` - Comma-separated list of API surfaces to expose
     New {
         // Name of Project
         name: String,
@@ -59,4 +68,6 @@ pub enum Commands {
         #[arg(long, value_delimiter = ',')]
         surface: Vec<ApiSurfaceOption>,
     },
+    // For testing/verifying functionality in development
+    Demo,
 }

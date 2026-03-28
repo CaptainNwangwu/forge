@@ -20,3 +20,21 @@ pub struct ScaffoldConfig {
     pub middleware: Vec<MiddlewareOption>,
     pub api_surface: Vec<ApiSurfaceOption>,
 }
+
+impl ScaffoldConfig {
+    pub fn new(
+        name: String,
+        db: Option<DatabaseOption>,
+        auth: Option<AuthenticationOption>,
+        mware: Vec<MiddlewareOption>,
+        api: Vec<ApiSurfaceOption>,
+    ) -> Self {
+        Self {
+            name,
+            database: db,
+            authorization: auth,
+            middleware: mware,
+            api_surface: api,
+        }
+    }
+}
